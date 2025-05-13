@@ -1,0 +1,13 @@
+.image-container {
+    box-shadow: 3px 1px 5px black;
+    transition-property: transform, box-shadow;
+    transition-duration: .8s;
+}
+
+.image-container:hover {
+    transform: scale(1.03);
+    z-index: 1;
+    box-shadow: 5px 9px 20px black, inset 0 0 8px purple;
+}
+
+

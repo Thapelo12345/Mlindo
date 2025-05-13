@@ -1,10 +1,10 @@
-
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import itemArr from "../ItemArr";
 
-const Navbar = () => {
+const Navbar = ({setOpen, setList}) => {
   const [scroll, setScroll] = useState(false);
   const location = useLocation();
   
@@ -55,7 +55,11 @@ const Navbar = () => {
               {item.name}
             </Link>
           ))}
-          <Button className="bg-purple-600 hover:bg-purple-700 text-white rounded-full">
+          <Button className="bg-purple-600 hover:bg-purple-700 text-white rounded-full"
+          onClick={() => {
+            setOpen(true)
+            setList([...itemArr])
+            }}>
             Get a Quote
           </Button>
         </div>
@@ -105,7 +109,12 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white rounded-full mt-4 w-full">
+              <Button className="bg-purple-600 hover:bg-purple-700 text-white rounded-full mt-4 w-full"
+              onClick={() =>{
+                setList([...itemArr])
+                setOpen(true)
+              }}
+              >
                 Get a Quote
               </Button>
             </div>

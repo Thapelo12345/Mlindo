@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 
-const Services = () => {
+const Services = ( { setOpenGallery } ) => {
   const equipmentCategories = [
     {
       id: "pa-systems",
@@ -111,7 +111,7 @@ const Services = () => {
         "On-site technician for 6 hours",
       ],
       price: "R5,200",
-      popular: false,
+      popular: true,
     },
     {
       title: "Concert Package",
@@ -124,7 +124,7 @@ const Services = () => {
         "On stage technician for 10 hours",
       ],
       price: "R12,500",
-      popular: false,
+      popular: true,
     },
   ];
 
@@ -138,9 +138,10 @@ const Services = () => {
             <p className="text-xl text-gray-600 mb-8">
               Browse our extensive range of professional sound equipment available for rent.
             </p>
-            <Button className="bg-purple-600 hover:bg-purple-700 text-white">
+            {/* Add my Pdf here.! */}
+            {/* <Button className="bg-purple-600 hover:bg-purple-700 text-white">
               Download Full Catalog (PDF)
-            </Button>
+            </Button> */}
           </div>
         </div>
       </section>
@@ -304,7 +305,9 @@ const Services = () => {
           </Tabs>
           
           <div className="text-center mt-12">
-            <Button className="bg-purple-600 hover:bg-purple-700 text-white">
+            <Button className="bg-purple-600 hover:bg-purple-700 text-white"
+            onClick={() => {setOpenGallery(true)}}
+            >
               View All Equipment
             </Button>
           </div>
@@ -347,9 +350,7 @@ const Services = () => {
                       ))}
                     </ul>
                   </div>
-                  <Button className={`w-full ${pkg.popular ? "bg-purple-600 hover:bg-purple-700 text-white" : "bg-gray-100 hover:bg-gray-200 text-gray-800"}`}>
-                    Get a Quote
-                  </Button>
+              
                 </CardContent>
               </Card>
             ))}

@@ -6,8 +6,9 @@ import SectionHeading from "@/components/SectionHeading";
 import EquipmentCard from "@/components/EquipmentCard";
 import { Link } from "react-router-dom";
 import { ChevronRight, Star } from "lucide-react";
+import itemArr from "@/ItemArr";
 
-const Index = () => {
+const Index = ( { setOpen, setList, setOpenGallery }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
@@ -140,10 +141,18 @@ const Index = () => {
               Premier sound equipment rental for events of all sizes, delivering exceptional audio quality and reliable service.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 rounded-full text-lg">
+              <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-6 rounded-full text-lg"
+              onClick={() => {
+                // setList([...itemArr])
+                setOpen(true)
+                console.log("inner qoute Clicked!.")
+              }}
+              >
                 Get a Quote
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-600 px-8 py-6 rounded-full text-lg">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-600 px-8 py-6 rounded-full text-lg"
+              onClick={() => {setOpenGallery(true)}}
+              >
                 Browse Sound Equipment
               </Button>
             </div>
